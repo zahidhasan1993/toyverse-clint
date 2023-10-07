@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -7,10 +8,10 @@ const Navbar = () => {
     setMobileMenuOpen(!mobileMenuOpen);
   };
   return (
-    <nav className="bg-base text-white p-4 fixed z-10 w-full container mx-auto">
+    <nav className="bg-gray-600 bg-opacity-70 md:bg-opacity-0 md:bg-base text-white p-4 fixed z-10 w-full container mx-auto">
       <div className="container mx-auto flex justify-between items-center">
         <a href="#" className="text-2xl font-semibold">
-          Your Logo
+          ToyVerse
         </a>
 
         <button
@@ -34,35 +35,35 @@ const Navbar = () => {
         </button>
 
         <div className="hidden lg:flex space-x-6">
-          <a href="#" className="hover:text-gray-300">
+          <Link to='/' className="hover:text-gray-300">
             Home
-          </a>
+          </Link>
           <a href="#" className="hover:text-gray-300">
             Store
           </a>
           <a href="#" className="hover:text-gray-300">
             About
           </a>
-          <a href="#" className="hover:text-gray-300">
+          <Link to='/login' className="hover:text-gray-300">
             Login
-          </a>
+          </Link>
         </div>
       </div>
 
       {mobileMenuOpen && (
         <div className="lg:hidden block mt-4">
-          <a href="#" className="block px-4 py-2 text-white hover:bg-gray-600">
+          <Link to='/' href="#" className="block px-4 py-2 text-white hover:bg-gray-600">
             Home
-          </a>
+          </Link>
           <a href="#" className="block px-4 py-2 text-white hover:bg-gray-600">
             Store
           </a>
           <a href="#" className="block px-4 py-2 text-white hover:bg-gray-600">
             About
           </a>
-          <a href="#" className="block px-4 py-2 text-white hover:bg-gray-600">
+          <Link to='/login' className="block px-4 py-2 text-white hover:bg-gray-600">
             Login
-          </a>
+          </Link>
         </div>
       )}
     </nav>

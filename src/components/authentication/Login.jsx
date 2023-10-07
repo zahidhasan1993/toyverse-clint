@@ -188,7 +188,7 @@ const Login = () => {
               <div className="mt-10 w-full">
                 <button
                   type="submit"
-                  className="bg-green-600 hover:bg-opacity-70"
+                  className="bg-green-600 px-5 py-2 rounded hover:bg-opacity-70 hover:scale-125 duration-300"
                 >
                   Log in
                 </button>
@@ -315,7 +315,7 @@ const Login = () => {
               <div className="mt-10 w-full">
                 <button
                   type="submit"
-                  className="bg-blue-600 hover:bg-opacity-70"
+                  className="bg-blue-600 px-5 py-2 hover:bg-opacity-70 hover:scale-125 duration-300"
                 >
                   Register
                 </button>
