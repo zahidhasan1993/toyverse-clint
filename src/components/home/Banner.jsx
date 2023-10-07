@@ -7,7 +7,7 @@ const Banner = () => {
     <div className="relative w-full flex flex-col-reverse md:flex-row items-center overflow-hidden">
       {/* :HERO IMAGE */}
       <div
-        className="absolute w-full h-full bg-gradient-to-t from-red-500 to-pink-400"
+        className="absolute w-full h-full bg-gradient-to-t from-pink-400 to-red-600"
         style={{ clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 75%)" }}
       >
         <img
@@ -22,7 +22,7 @@ const Banner = () => {
         <img
           src={sideImg}
           alt=""
-          className="relative mx-auto sm:w-40 md:w-60 xl:w-80 xl:mt-20 rounded-2xl"
+          className="relative mx-auto sm:w-40 md:w-60 xl:w-80 xl:mt-20 rounded-2xl opacity-80"
         />
       </div>
 
