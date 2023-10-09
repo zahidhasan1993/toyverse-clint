@@ -1,12 +1,17 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import marvel from "../../assets/images/login/marvel.jpg";
 import spidy from "../../assets/images/login/spidy.jpg";
 
 const Login = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [])
+  
   const [isForm, setIsForm] = useState({
     login: true,
     register: false,
   });
+  
   const signInEmailRef = useRef();
   const signInPasswordRef = useRef();
   const signUpUsernameRef = useRef();
@@ -61,9 +66,7 @@ const Login = () => {
         <div className="z-10 col-span-7 sm:col-span-2 md:col-span-1 h-full flex sm:flex-col border-t border-transparent items-center text-sm text-gray-500">
           {/* Login */}
           <button
-            onClick={() =>
-              setIsForm({ login: true, register: false })
-            }
+            onClick={() => setIsForm({ login: true, register: false })}
             className={`py-1.5 w-full h-full sm:h-1/3 inline-flex flex-col justify-center items-center active:outline-none focus:outline-none ${
               isForm.login
                 ? "bg-white bg-opacity-90 text-gray-800"
@@ -88,9 +91,7 @@ const Login = () => {
           </button>
           {/* Registration */}
           <button
-            onClick={() =>
-              setIsForm({ login: false, register: true })
-            }
+            onClick={() => setIsForm({ login: false, register: true })}
             className={`py-1.5 w-full h-full sm:h-1/3 inline-flex flex-col justify-center items-center active:outline-none focus:outline-none ${
               isForm.register
                 ? "bg-white bg-opacity-90 text-gray-800"

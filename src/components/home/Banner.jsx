@@ -1,5 +1,6 @@
 import bgImg from "../../assets/images/banner/ussama-azam-Pb_QtB442h4-unsplash.jpg";
 import sideImg from "../../assets/images/banner/anshuman-gaikwad-YOditKKj384-unsplash.jpg";
+import { Link } from "react-router-dom";
 
 const Banner = () => {
   return (
@@ -33,9 +34,9 @@ const Banner = () => {
         </p>
 
         <div className="flex-shrink-0 py-5 flex flex-col sm:flex-row items-center">
-          <button className="py-2 px-5 text-xl bg-white text-black rounded hover:bg-black hover:text-white hover:scale-125 duration-300">
+          <Link to='/login' className="py-2 px-5 text-xl bg-white text-black rounded hover:bg-black hover:text-white hover:scale-125 duration-300">
             Sign Up
-          </button>
+          </Link>
         </div>
       </div>
     </div>

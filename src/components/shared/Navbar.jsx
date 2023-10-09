@@ -8,7 +8,7 @@ const Navbar = () => {
     setMobileMenuOpen(!mobileMenuOpen);
   };
   return (
-    <nav className="bg-gray-600 bg-opacity-70 md:bg-opacity-0 md:bg-base text-white p-4 fixed z-10 w-full container mx-auto">
+    <nav className="bg-gray-600 bg-opacity-30 text-white p-4 fixed z-10 w-full container mx-auto">
       <div className="container mx-auto flex justify-between items-center">
         <a href="#" className="text-2xl font-semibold">
           ToyVerse

@@ -1,0 +1,42 @@
+[
+  {
+    "id": 1,
+    "Picture": "https://images.unsplash.com/photo-1635863138275-d9b33299680b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1331&q=80",
+    "Name": "Iron Man",
+    "Price": 19.99,
+    "Rating": 4.5,
+    "Details": "iron man is a fun and interactive toy for kids."
+  },
+  {
+    "id": 2,
+    "Picture": "https://images.unsplash.com/photo-1626209731723-4bf514fcdcd1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80",
+    "Name": "Thor",
+    "Price": 24.99,
+    "Rating": 4.2,
+    "Details": "Thor is a colorful building block set for creative play."
+  },
+  {
+    "id": 3,
+    "Picture": "https://images.unsplash.com/photo-1533859583213-c4e11b597ee0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
+    "Name": "Teddy",
+    "Price": 14.99,
+    "Rating": 3.8,
+    "Details": "Teddy is a soft plush animal that kids will love to cuddle with."
+  },
+  {
+    "id": 4,
+    "Picture": "https://images.pexels.com/photos/1592384/pexels-photo-1592384.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    "Name": "Vintage Car",
+    "Price": 29.99,
+    "Rating": 4.7,
+    "Details": "This is a remote-controlled car with impressive speed and agility."
+  },
+  {
+    "id": 5,
+    "Picture": "https://images.unsplash.com/photo-1577896849786-738ed6c78bd3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1474&q=80",
+    "Name": "Monopoly",
+    "Price": 12.99,
+    "Rating": 4.0,
+    "Details": "Monopoly is a classic board game for family game night fun."
+  }
+]
