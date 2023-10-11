@@ -1,6 +1,8 @@
 import { useEffect, useRef, useState } from "react";
 import marvel from "../../assets/images/login/marvel.jpg";
 import spidy from "../../assets/images/login/spidy.jpg";
+import useAuth from "../../customHooks/useAuth";
+import Swal from "sweetalert2";
 
 const Login = () => {
   useEffect(() => {
@@ -11,7 +13,7 @@ const Login = () => {
     login: true,
     register: false,
   });
-  
+  const {googleLogin} = useAuth();
   const signInEmailRef = useRef();
   const signInPasswordRef = useRef();
   const signUpUsernameRef = useRef();
@@ -30,6 +32,24 @@ const Login = () => {
     Do something here !
     */
   };
+  const handleGoogleLogin = () => {
+    googleLogin()
+    .then(result => {
+      console.log(result);
+      if (result.user) {
+        Swal.fire({
+          position: 'top-end',
+          icon: 'success',
+          title: `${result.user.displayName} your account created successfully`,
+          showConfirmButton: false,
+          timer: 2000
+        })
+      }
+    })
+    .then(error => {
+      console.log(error);
+    })
+  }
 
   const getPosition = () => {
     return isForm.login ? "top-full" : isForm.register ? "top-0" : null;
@@ -186,13 +206,14 @@ const Login = () => {
                 </svg>
               </label>
               {/* Login Submit Button */}
-              <div className="mt-10 w-full">
+              <div className="mt-10 w-full flex flex-col gap-4">
                 <button
                   type="submit"
                   className="bg-green-600 px-5 py-2 rounded hover:bg-opacity-70 hover:scale-125 duration-300"
                 >
                   Log in
                 </button>
+                <button onClick={handleGoogleLogin} className="py-2 px-5 bg-green-600 text-white hover:bg-opacity-70 hover:scale-125 duration-300 ease-in">Google Login</button>
               </div>
             </form>
           </div>
@@ -313,13 +334,14 @@ const Login = () => {
                 </svg>
               </label>
               {/* Login Submit Button */}
-              <div className="mt-10 w-full">
+              <div className="mt-10 w-full flex flex-col gap-4">
                 <button
                   type="submit"
-                  className="bg-blue-600 px-5 py-2 hover:bg-opacity-70 hover:scale-125 duration-300"
+                  className="bg-blue-600 px-5 py-2 hover:bg-opacity-70 hover:scale-125 duration-300 ease-out"
                 >
                   Register
                 </button>
+                <button onClick={handleGoogleLogin} className="py-2 px-5 bg-green-600 text-white hover:bg-opacity-70 hover:scale-125 duration-300 ease-in">Google SignUp</button>
               </div>
             </form>
           </div>

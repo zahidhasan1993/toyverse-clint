@@ -1,18 +1,29 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import useAuth from "../../customHooks/useAuth";
 
 const Navbar = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-
+  const { user,logOut } = useAuth();
+  console.log(user);
   const toggleMobileMenu = () => {
     setMobileMenuOpen(!mobileMenuOpen);
   };
+  const handleLogout = () => {
+    logOut()
+    .then(result => {
+      console.log(result);
+    })
+    .then(error => {
+      console.log(error);
+    })
+  }
   return (
     <nav className="bg-gray-600 bg-opacity-30 text-white p-4 fixed z-10 w-full container mx-auto">
       <div className="container mx-auto flex justify-between items-center">
-        <a href="#" className="text-2xl font-semibold">
+        <Link to="/" className="text-2xl font-semibold">
           ToyVerse
-        </a>
+        </Link>
 
         <button
           className="lg:hidden focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white"
@@ -35,35 +46,47 @@ const Navbar = () => {
         </button>
 
         <div className="hidden lg:flex space-x-6">
-          <Link to='/' className="hover:text-gray-300">
+          <Link to="/" className="hover:text-gray-300">
             Home
           </Link>
-          <a href="#" className="hover:text-gray-300">
+          <Link to="" className="hover:text-gray-300">
             Store
-          </a>
-          <a href="#" className="hover:text-gray-300">
-            About
-          </a>
-          <Link to='/login' className="hover:text-gray-300">
-            Login
           </Link>
+          <Link to="" className="hover:text-gray-300">
+            About
+          </Link>
+          {user ? (
+            <button onClick={handleLogout} className="hover:text-gray-300">
+              Logout
+            </button>
+          ) : (
+            <Link to="/login" className="hover:text-gray-300">
+              Login
+            </Link>
+          )}
         </div>
       </div>
 
       {mobileMenuOpen && (
         <div className="lg:hidden block mt-4">
-          <Link to='/' href="#" className="block px-4 py-2 text-white hover:bg-gray-600">
+          <Link to="/" className="block px-4 py-2 text-white hover:bg-gray-600">
             Home
           </Link>
-          <a href="#" className="block px-4 py-2 text-white hover:bg-gray-600">
+          <Link to="" className="block px-4 py-2 text-white hover:bg-gray-600">
             Store
-          </a>
-          <a href="#" className="block px-4 py-2 text-white hover:bg-gray-600">
-            About
-          </a>
-          <Link to='/login' className="block px-4 py-2 text-white hover:bg-gray-600">
-            Login
           </Link>
+          <Link to="" className="block px-4 py-2 text-white hover:bg-gray-600">
+            About
+          </Link>
+          {user ? (
+            <button  className="hover:text-gray-300">
+              Logout
+            </button>
+          ) : (
+            <Link to="/login" className="hover:text-gray-300">
+              Login
+            </Link>
+          )}
         </div>
       )}
     </nav>
