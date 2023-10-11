@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import useAuth from "../../customHooks/useAuth";
+import Swal from "sweetalert2";
 
 const Navbar = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -11,8 +12,14 @@ const Navbar = () => {
   };
   const handleLogout = () => {
     logOut()
-    .then(result => {
-      console.log(result);
+    .then(() => {
+      Swal.fire({
+        position: "top-end",
+        icon: "success",
+        title: "Logout Successful",
+        showConfirmButton: false,
+        timer: 2000,
+      });
     })
     .then(error => {
       console.log(error);

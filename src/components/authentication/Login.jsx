@@ -1,55 +1,86 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import marvel from "../../assets/images/login/marvel.jpg";
 import spidy from "../../assets/images/login/spidy.jpg";
 import useAuth from "../../customHooks/useAuth";
 import Swal from "sweetalert2";
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import { useForm } from "react-hook-form";
 
 const Login = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
-  }, [])
-  
+  }, []);
+
   const [isForm, setIsForm] = useState({
     login: true,
     register: false,
   });
-  const {googleLogin} = useAuth();
-  const signInEmailRef = useRef();
-  const signInPasswordRef = useRef();
-  const signUpUsernameRef = useRef();
-  const signUpEmailRef = useRef();
-  const signUpPasswordRef = useRef();
-  const signUpConfirmPasswordRef = useRef();
-  const handleSubmitSignIn = (e) => {
-    e.preventDefault();
-    /* 
-    Do something here !
-    */
+  const { googleLogin,emailSignUp,emailLogIn } = useAuth();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    reset
+  } = useForm();
+
+  const onRegistrationSubmit = (data) => {
+    console.log(data);
+    emailSignUp(data.email,data.password)
+    .then(() => {
+      Swal.fire({
+        position: "top-end",
+        icon: "success",
+        title: "User Created Successful",
+        showConfirmButton: false,
+        timer: 2000,
+      });
+      reset();
+      // console.log(result.user);
+    })
+    .then(error => {
+      console.log(error);
+    })
+
   };
-  const handleSubmitSignUp = (e) => {
+  const onLoginSubmit = (e) => {
     e.preventDefault();
-    /* 
-    Do something here !
-    */
-  };
-  const handleGoogleLogin = () => {
-    googleLogin()
-    .then(result => {
-      console.log(result);
-      if (result.user) {
-        Swal.fire({
-          position: 'top-end',
-          icon: 'success',
-          title: `${result.user.displayName} your account created successfully`,
-          showConfirmButton: false,
-          timer: 2000
-        })
-      }
+    const form = e.target;
+    const email = form.loginEmail.value;
+    const password = form.loginPassword.value;
+    emailLogIn(email,password)
+    .then(() => {
+      Swal.fire({
+        position: "top-end",
+        icon: "success",
+        title: "User Login Successful",
+        showConfirmButton: false,
+        timer: 2000,
+      });
+      form.reset()
     })
     .then(error => {
       console.log(error);
     })
   }
+
+  const handleGoogleLogin = () => {
+    googleLogin()
+      .then((result) => {
+        console.log(result);
+        if (result.user) {
+          Swal.fire({
+            position: "top-end",
+            icon: "success",
+            title: `${result.user.displayName} your account created successfully`,
+            showConfirmButton: false,
+            timer: 2000,
+          });
+        }
+      })
+      .then((error) => {
+        console.log(error);
+      });
+  };
 
   const getPosition = () => {
     return isForm.login ? "top-full" : isForm.register ? "top-0" : null;
@@ -66,7 +97,7 @@ const Login = () => {
         </h1>
       </div>
       {/* :BACKGROUND */}
-      <img
+      <LazyLoadImage
         src={marvel}
         alt=""
         className="absolute top-0 w-full h-full bg-center object-cover opacity-50"
@@ -75,7 +106,7 @@ const Login = () => {
       <div className="relative z-10 max-w-5xl w-full md:w-3/4 grid grid-cols-7 overflow-hidden rounded-lg shadow-xl">
         {/* ::Image */}
         <div className="hidden md:block md:col-span-2 relative border-t border-transparent">
-          <img
+          <LazyLoadImage
             src={spidy}
             alt=""
             className="absolute h-full bg-center object-cover"
@@ -142,7 +173,7 @@ const Login = () => {
         >
           {/* ::Login Form */}
           <div
-            onSubmit={handleSubmitSignIn}
+            onSubmit={onLoginSubmit}
             className={`px-8 lg:px-20 w-full h-full flex flex-col items-center justify-center bg-white bg-opacity-90 transition-all duration-150 ease-in transform ${
               !isForm.login && "opacity-0"
             }`}
@@ -156,10 +187,9 @@ const Login = () => {
               {/* Login Email */}
               <label htmlFor="email" className="relative">
                 <input
-                  ref={signInEmailRef}
-                  id="email"
+                  
                   type="email"
-                  name="email"
+                  name="loginEmail"
                   className="form-input mb-5 py-0.5 w-full text-base text-gray-700 border-0 border-b border-gray-700 outline-none bg-transparent focus:ring-0 focus:border-green-600"
                   placeholder="Email"
                   required
@@ -182,10 +212,9 @@ const Login = () => {
               {/* Login Password */}
               <label htmlFor="password" className="relative">
                 <input
-                  ref={signInPasswordRef}
-                  id="password"
+                  
                   type="password"
-                  name="password"
+                  name="loginPassword"
                   className="form-input mb-5 py-0.5 w-full text-base text-gray-700 border-0 border-b border-gray-700 outline-none bg-transparent focus:ring-0 focus:border-green-600"
                   placeholder="Password"
                   required
@@ -213,14 +242,19 @@ const Login = () => {
                 >
                   Log in
                 </button>
-                <button onClick={handleGoogleLogin} className="py-2 px-5 bg-green-600 text-white hover:bg-opacity-70 hover:scale-125 duration-300 ease-in">Google Login</button>
+                <button
+                  onClick={handleGoogleLogin}
+                  className="py-2 px-5 bg-green-600 text-white hover:bg-opacity-70 hover:scale-125 duration-300 ease-in"
+                >
+                  Google Login
+                </button>
               </div>
             </form>
           </div>
 
           {/* ::Register Form */}
           <div
-            onSubmit={handleSubmitSignUp}
+            onSubmit={handleSubmit(onRegistrationSubmit)}
             className={`px-8 lg:px-20 w-full h-full flex flex-col items-center justify-center bg-white bg-opacity-90 transition-all duration-150 ease-in transform ${
               !isForm.register && "opacity-0"
             }`}
@@ -234,14 +268,16 @@ const Login = () => {
               {/* Register Username */}
               <label htmlFor="username" className="relative">
                 <input
-                  ref={signUpUsernameRef}
-                  id="username"
                   type="text"
                   name="username"
                   className="mb-5 py-0.5 w-full text-base text-gray-700 border-0 border-b border-gray-700 outline-none bg-transparent focus:border-blue-600 focus:ring-0"
                   placeholder="Username"
-                  required
+                  {...register("username", {
+                    required: "Username is required",
+                  })}
+                  
                 />
+                
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   className="absolute bottom-0 right-0 h-5 w-5 text-gray-400"
@@ -256,18 +292,18 @@ const Login = () => {
                     d="M10 6H5a2 2 0 00-2 2v9a2 2 0 002 2h14a2 2 0 002-2V8a2 2 0 00-2-2h-5m-4 0V5a2 2 0 114 0v1m-4 0a2 2 0 104 0m-5 8a2 2 0 100-4 2 2 0 000 4zm0 0c1.306 0 2.417.835 2.83 2M9 14a3.001 3.001 0 00-2.83 2M15 11h3m-3 4h2"
                   />
                 </svg>
+                {errors.username && <p>{errors.username.message}</p>}
               </label>
               {/* Register Email */}
               <label htmlFor="email" className="relative">
                 <input
-                  ref={signUpEmailRef}
-                  id="email"
                   type="email"
                   name="email"
                   className="mb-5 py-0.5 w-full text-base text-gray-700 border-0 border-b border-gray-700 outline-none bg-transparent focus:border-blue-600 focus:ring-0"
                   placeholder="Email"
-                  required
+                  {...register("email", { required: "Email is required" })}
                 />
+                
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   className="absolute bottom-0 right-0 h-5 w-5 text-gray-400"
@@ -282,18 +318,27 @@ const Login = () => {
                     d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
                   />
                 </svg>
+                {errors.email && <p>{errors.email.message}</p>}
               </label>
               {/* Register Password */}
               <label htmlFor="password" className="relative">
                 <input
-                  ref={signUpPasswordRef}
-                  id="password"
+                  
                   type="password"
                   name="password"
                   className="mb-5 py-0.5 w-full text-base text-gray-700 border-0 border-b border-gray-700 outline-none bg-transparent focus:border-blue-600 focus:ring-0"
                   placeholder="Password"
-                  required
+                  {...register("password", {
+                    required: "Password is required",
+                    pattern: {
+                      value: /^(?=.*[A-Z])(?=.*\d).+$/,
+                      message:
+                        "Password must contain at least one uppercase letter and one number",
+                    },
+                  })}
+                  autoComplete="current-password"
                 />
+                
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   className="absolute bottom-0 right-0 h-5 w-5 text-gray-400"
@@ -308,32 +353,10 @@ const Login = () => {
                     d="M15 7a2 2 0 012 2m4 0a6 6 0 01-7.743 5.743L11 17H9v2H7v2H4a1 1 0 01-1-1v-2.586a1 1 0 01.293-.707l5.964-5.964A6 6 0 1121 9z"
                   />
                 </svg>
+                {errors.password && <p>{errors.password.message}</p>}
               </label>
-              {/* Register Confirm Password */}
-              <label htmlFor="password" className="relative">
-                <input
-                  ref={signUpConfirmPasswordRef}
-                  id="password"
-                  type="password"
-                  name="password"
-                  className="mb-5 py-0.5 w-full text-base text-gray-700 border-0 border-b border-gray-700 outline-none bg-transparent focus:border-blue-600 focus:ring-0"
-                  placeholder="Confirm Password"
-                  required
-                />
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="absolute bottom-0 right-0 h-5 w-5 text-gray-400 text-opacity-70"
-                  viewBox="0 0 20 20"
-                  fill="currentColor"
-                >
-                  <path
-                    fillRule="evenodd"
-                    d="M18 8a6 6 0 01-7.743 5.743L10 14l-1 1-1 1H6v2H2v-4l4.257-4.257A6 6 0 1118 8zm-6-4a1 1 0 100 2 2 2 0 012 2 1 1 0 102 0 4 4 0 00-4-4z"
-                    clipRule="evenodd"
-                  />
-                </svg>
-              </label>
-              {/* Login Submit Button */}
+
+              {/* Register Submit Button */}
               <div className="mt-10 w-full flex flex-col gap-4">
                 <button
                   type="submit"
@@ -341,7 +364,12 @@ const Login = () => {
                 >
                   Register
                 </button>
-                <button onClick={handleGoogleLogin} className="py-2 px-5 bg-green-600 text-white hover:bg-opacity-70 hover:scale-125 duration-300 ease-in">Google SignUp</button>
+                <button
+                  onClick={handleGoogleLogin}
+                  className="py-2 px-5 bg-green-600 text-white hover:bg-opacity-70 hover:scale-125 duration-300 ease-in"
+                >
+                  Google SignUp
+                </button>
               </div>
             </form>
           </div>
