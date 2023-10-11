@@ -11,7 +11,7 @@ const TopToys = () => {
         setToys(data);
       });
   }, [setToys]);
-  console.log(toys);
+  // console.log(toys);
 
   return (
     <div className="bg-white my-20">

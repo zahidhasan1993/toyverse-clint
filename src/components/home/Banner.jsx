@@ -27,7 +27,7 @@ const Banner = () => {
       <div className="relative pt-20 pb-10 md:py-40 px-3 w-full md:w-1/2 h-full sm:h-1/2 md:h-full flex flex-col justify-center items-center md:items-start text-center md:text-left text-white">
         <h2 className="text-xl sm:text-3xl font-mulish">Marketplace for</h2>
 
-        <h1 className="text-5xl sm:text-7xl font-mulish">Fancy Toys</h1>
+        <h1 className="text-5xl sm:text-7xl font-mulish">Unique Toys</h1>
 
         <p className="max-w-lg py-5 font-thin leading-relaxed">
           In Toyverse you can have many toys that you never seen before. All category toys are here. You can choose from barbie to marvel and DC all toys are available at our shop.
