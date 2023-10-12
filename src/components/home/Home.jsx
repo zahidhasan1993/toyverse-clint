@@ -5,6 +5,7 @@ import Gallery from "./Gallery";
 import TopToys from "./TopToys";
 import useTitle from "../../customHooks/useTitle";
 import ParallaxBanner from "./ParallaxBanner";
+import TabItems from "./TabItems";
 
 const Home = () => {
   useEffect(() => {
@@ -19,6 +20,8 @@ const Home = () => {
       <Gallery></Gallery>
       <ParallaxBanner></ParallaxBanner>
       <TopToys></TopToys>
+      <SectionTItle name="Get Your Toy"></SectionTItle>
+      <TabItems></TabItems>
     </div>
   );
 };

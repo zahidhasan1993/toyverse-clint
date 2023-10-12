@@ -10,11 +10,10 @@ const ParallaxBanner = () => {
         <p className="text-5xl font-bold underline mb-10">
           Set you toys to be listed
         </p>
-        <Link
-          to="/login"
-          className="py-2 px-5 text-xl bg-white text-black rounded hover:bg-black hover:text-white hover:scale-125 duration-300"
-        >
-          Join Us
+        <Link to="/login">
+          <button className="py-2 px-5 text-xl bg-white text-black rounded hover:bg-black hover:text-white hover:scale-125 duration-300">
+            Join Us
+          </button>
         </Link>
       </div>
     </div>

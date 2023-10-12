@@ -5,26 +5,26 @@ import Swal from "sweetalert2";
 
 const Navbar = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const { user,logOut } = useAuth();
+  const { user, logOut } = useAuth();
   console.log(user);
   const toggleMobileMenu = () => {
     setMobileMenuOpen(!mobileMenuOpen);
   };
   const handleLogout = () => {
     logOut()
-    .then(() => {
-      Swal.fire({
-        position: "top-end",
-        icon: "success",
-        title: "Logout Successful",
-        showConfirmButton: false,
-        timer: 2000,
+      .then(() => {
+        Swal.fire({
+          position: "top-end",
+          icon: "success",
+          title: "Logout Successful",
+          showConfirmButton: false,
+          timer: 2000,
+        });
+      })
+      .then((error) => {
+        console.log(error);
       });
-    })
-    .then(error => {
-      console.log(error);
-    })
-  }
+  };
   return (
     <nav className="bg-gray-600 bg-opacity-30 text-white p-4 fixed z-10 w-full container mx-auto">
       <div className="container mx-auto flex justify-between items-center">
@@ -63,6 +63,19 @@ const Navbar = () => {
             About
           </Link>
           {user ? (
+            <>
+              <Link to="" className="hover:text-gray-300">
+                Add Toy
+              </Link>{" "}
+              <Link to="" className="hover:text-gray-300">
+                My Toy
+              </Link>
+            </>
+          ) : (
+            <></>
+          )}
+
+          {user ? (
             <button onClick={handleLogout} className="hover:text-gray-300">
               Logout
             </button>
@@ -86,9 +99,19 @@ const Navbar = () => {
             About
           </Link>
           {user ? (
-            <button  className="hover:text-gray-300">
-              Logout
-            </button>
+            <>
+              <Link to="" className="hover:text-gray-300">
+                Add Toy
+              </Link>{" "}
+              <Link to="" className="hover:text-gray-300">
+                My Toy
+              </Link>
+            </>
+          ) : (
+            <></>
+          )}
+          {user ? (
+            <button className="hover:text-gray-300">Logout</button>
           ) : (
             <Link to="/login" className="hover:text-gray-300">
               Login
