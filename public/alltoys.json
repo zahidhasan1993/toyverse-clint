@@ -1,0 +1,72 @@
+[
+  {
+    "picture": "toy1.jpg",
+    "name": "Toy 1",
+    "price": 19.99,
+    "rating": 4.5,
+    "details": "Toy 1 is a fantastic choice for kids. It's designed to provide endless fun and excitement. This interactive toy features vibrant colors and engaging shapes, making it perfect for stimulating a child's creativity. Its affordable price of $19.99 ensures it's accessible to everyone. With a high rating of 4.5, it's clear that kids love Toy 1. Whether it's building, playing, or learning, this toy has it all. Give your child a gift they'll treasure for years to come with Toy 1!"
+  },
+  {
+    "picture": "toy2.jpg",
+    "name": "Toy 2",
+    "price": 14.99,
+    "rating": 4.2,
+    "details": "Toy 2 is a captivating and affordable choice for children. This interactive toy comes with delightful sound effects, adding an extra layer of excitement to playtime. Priced at just $14.99, it's perfect for budget-conscious parents. With a solid 4.2 rating, it's clear that Toy 2 is a hit among kids. Its engaging features keep children entertained for hours. Toy 2 offers a mix of fun and learning, making it a must-have in any toy collection."
+  },
+  {
+    "picture": "toy3.jpg",
+    "name": "Toy 3",
+    "price": 24.99,
+    "rating": 4.8,
+    "details": "Toy 3 is an educational masterpiece for early learners. Packed with engaging features, it's designed to enhance children's cognitive development. Although it's priced at $24.99, its 4.8 rating indicates it's worth every penny. Toy 3 is a favorite among parents and teachers alike. Its interactive nature encourages kids to explore and learn through play. Give your child a head start with Toy 3, a toy that combines fun and education seamlessly."
+  },
+  {
+    "picture": "toy4.jpg",
+    "name": "Toy 4",
+    "price": 9.99,
+    "rating": 3.9,
+    "details": "Toy 4 is a simple and affordable option for young children. With a price of only $9.99, it's a great choice for those on a tight budget. While it has a rating of 3.9, it still provides ample entertainment and encourages imaginative play. Toy 4 is perfect for young ones looking for uncomplicated fun. Its basic design allows children to let their creativity run wild as they play."
+  },
+  {
+    "picture": "toy5.jpg",
+    "name": "Toy 5",
+    "price": 34.99,
+    "rating": 4.7,
+    "details": "Toy 5 is a premium quality toy with advanced features. Priced at $34.99, it offers top-notch entertainment. With a high rating of 4.7, it's a favorite among kids and parents alike. Toy 5's advanced features include interactive technology and durable construction. It's a long-lasting investment in your child's happiness and development. Choose Toy 5 for a toy that excels in both quality and entertainment."
+  },
+  {
+    "picture": "toy6.jpg",
+    "name": "Toy 6",
+    "price": 12.99,
+    "rating": 4.0,
+    "details": "Toy 6 is a durable and safe toy designed for young children. It comes at an affordable price of $12.99, making it a popular choice for parents. Despite its rating of 4.0, Toy 6 provides endless hours of safe and engaging play. Its sturdy build ensures it can withstand the rigors of playtime, making it perfect for active kids. Let your child's imagination run wild with Toy 6."
+  },
+  {
+    "picture": "toy7.jpg",
+    "name": "Toy 7",
+    "price": 29.99,
+    "rating": 4.6,
+    "details": "Toy 7 boasts an innovative design that keeps kids entertained for hours. Priced at $29.99, it offers a great balance of affordability and quality. With a rating of 4.6, it's a popular choice among children and parents. Toy 7's innovative features make it a standout in the world of toys. It encourages creative play and exploration, making it a top choice for any child."
+  },
+  {
+    "picture": "toy8.jpg",
+    "name": "Toy 8",
+    "price": 17.99,
+    "rating": 4.3,
+    "details": "Toy 8 is an excellent choice for imaginative play. Priced at $17.99, it strikes a balance between quality and affordability. With a rating of 4.3, it's a well-loved toy among kids. Toy 8 sparks creativity and encourages kids to explore their imagination. Whether it's building, role-playing, or storytelling, Toy 8 is the perfect companion for endless adventures."
+  },
+  {
+    "picture": "toy9.jpg",
+    "name": "Toy 9",
+    "price": 21.99,
+    "rating": 4.4,
+    "details": "Toy 9 is a classic toy loved by generations. Priced at $21.99, it offers timeless entertainment. With a rating of 4.4, it's a favorite among kids and adults alike. Toy 9's enduring appeal transcends generations. It encourages traditional play, fostering a sense of nostalgia and togetherness. Rediscover the joy of play with Toy 9."
+  },
+  {
+    "picture": "toy10.jpg",
+    "name": "Toy 10",
+    "price": 39.99,
+    "rating": 4.9,
+    "details": "Toy 10 is a highly recommended toy for kids. Priced at $39.99, it offers top-quality entertainment. With a stellar rating of 4.9, it's a clear favorite among children and parents. Toy 10 combines innovative features with a focus on education, ensuring a well-rounded play experience. Invest in your child's growth and happiness with Toy 10, a toy that exceeds expectations."
+  }
+]

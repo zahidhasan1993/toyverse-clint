@@ -5,63 +5,63 @@ import useAuth from "../../customHooks/useAuth";
 import Swal from "sweetalert2";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import { useForm } from "react-hook-form";
+import useTitle from "../../customHooks/useTitle";
 
 const Login = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
-
+  useTitle("ToyVerse | Authentication");
   const [isForm, setIsForm] = useState({
     login: true,
     register: false,
   });
-  const { googleLogin,emailSignUp,emailLogIn } = useAuth();
+  const { googleLogin, emailSignUp, emailLogIn } = useAuth();
   const {
     register,
     handleSubmit,
     formState: { errors },
-    reset
+    reset,
   } = useForm();
 
   const onRegistrationSubmit = (data) => {
     console.log(data);
-    emailSignUp(data.email,data.password)
-    .then(() => {
-      Swal.fire({
-        position: "top-end",
-        icon: "success",
-        title: "User Created Successful",
-        showConfirmButton: false,
-        timer: 2000,
+    emailSignUp(data.email, data.password)
+      .then(() => {
+        Swal.fire({
+          position: "top-end",
+          icon: "success",
+          title: "User Created Successful",
+          showConfirmButton: false,
+          timer: 2000,
+        });
+        reset();
+        // console.log(result.user);
+      })
+      .then((error) => {
+        console.log(error);
       });
-      reset();
-      // console.log(result.user);
-    })
-    .then(error => {
-      console.log(error);
-    })
-
   };
   const onLoginSubmit = (e) => {
     e.preventDefault();
     const form = e.target;
     const email = form.loginEmail.value;
     const password = form.loginPassword.value;
-    emailLogIn(email,password)
-    .then(() => {
-      Swal.fire({
-        position: "top-end",
-        icon: "success",
-        title: "User Login Successful",
-        showConfirmButton: false,
-        timer: 2000,
+    emailLogIn(email, password)
+      .then(() => {
+        Swal.fire({
+          position: "top-end",
+          icon: "success",
+          title: "User Login Successful",
+          showConfirmButton: false,
+          timer: 2000,
+        });
+        form.reset();
+      })
+      .then((error) => {
+        console.log(error);
       });
-      form.reset()
-    })
-    .then(error => {
-      console.log(error);
-    })
-  }
+  };
 
   const handleGoogleLogin = () => {
     googleLogin()
@@ -187,7 +187,6 @@ const Login = () => {
               {/* Login Email */}
               <label htmlFor="email" className="relative">
                 <input
-                  
                   type="email"
                   name="loginEmail"
                   className="form-input mb-5 py-0.5 w-full text-base text-gray-700 border-0 border-b border-gray-700 outline-none bg-transparent focus:ring-0 focus:border-green-600"
@@ -212,7 +211,6 @@ const Login = () => {
               {/* Login Password */}
               <label htmlFor="password" className="relative">
                 <input
-                  
                   type="password"
                   name="loginPassword"
                   className="form-input mb-5 py-0.5 w-full text-base text-gray-700 border-0 border-b border-gray-700 outline-none bg-transparent focus:ring-0 focus:border-green-600"
@@ -275,9 +273,8 @@ const Login = () => {
                   {...register("username", {
                     required: "Username is required",
                   })}
-                  
                 />
-                
+
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   className="absolute bottom-0 right-0 h-5 w-5 text-gray-400"
@@ -303,7 +300,7 @@ const Login = () => {
                   placeholder="Email"
                   {...register("email", { required: "Email is required" })}
                 />
-                
+
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   className="absolute bottom-0 right-0 h-5 w-5 text-gray-400"
@@ -323,7 +320,6 @@ const Login = () => {
               {/* Register Password */}
               <label htmlFor="password" className="relative">
                 <input
-                  
                   type="password"
                   name="password"
                   className="mb-5 py-0.5 w-full text-base text-gray-700 border-0 border-b border-gray-700 outline-none bg-transparent focus:border-blue-600 focus:ring-0"
@@ -338,7 +334,7 @@ const Login = () => {
                   })}
                   autoComplete="current-password"
                 />
-                
+
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   className="absolute bottom-0 right-0 h-5 w-5 text-gray-400"
