@@ -1,4 +1,6 @@
+import Rating from "react-rating";
 import { Link } from "react-router-dom";
+import { FaRegStar, FaStar } from "react-icons/fa";
 
 const TabCard = ({ item }) => {
   console.log(item);
@@ -24,17 +26,21 @@ const TabCard = ({ item }) => {
             <div className="mt-4 grid grid-cols-2">
               <div className="flex items-center">
                 <div className="relative">
-                  <h2
-                    className="line-clamp-1 text-base font-medium text-gray-800 md:text-lg"
-                    
-                  >
+                  <h2 className="line-clamp-1 text-base font-medium text-gray-800 md:text-lg">
                     {item.name}
                   </h2>
+
                   <p
                     className="mt-2 line-clamp-1 text-sm text-gray-800"
                     title="New York, NY 10004, United States"
                   >
-                    Ratings : {item.rating}
+                    Ratings :{" "}
+                    <Rating
+                      initialRating={item.rating}
+                      emptySymbol={<FaRegStar className="text-amber-500"></FaRegStar>}
+                      fullSymbol={<FaStar className="text-amber-500"></FaStar>}
+                      readonly={true}
+                    ></Rating>
                   </p>
                 </div>
               </div>
