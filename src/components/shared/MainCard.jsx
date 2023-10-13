@@ -59,7 +59,7 @@ const MainCard = ({ item }) => {
             <div className="mt-2 mb-5 border-t border-gray-200 pt-3 text-sm text-gray-600">
               {item.details.slice(0, 130)}...
             </div>
-            <Link to="">
+            <Link to={`/details/${item._id}`}>
               <button className="py-2 px-5 bg-red-500 text-white rounded-lg font-semibold text-sm hover:bg-red-600 hover:scale-125 duration-300 ease-in-out">
                 View Details
               </button>
