@@ -1,7 +1,12 @@
+import Swal from "sweetalert2";
 import useAuth from "../../customHooks/useAuth";
 import useTitle from "../../customHooks/useTitle";
+import { useEffect } from "react";
 
 const AddToy = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   const { user } = useAuth();
   useTitle("ToyVerse | addtoy");
   // console.log(user?.email);
@@ -19,13 +24,41 @@ const AddToy = () => {
     const formData = {
       name,
       email,
-      photo,
+      picture: photo,
       category,
       price,
       rating,
-      details
+      details,
     };
-    console.log(formData);
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, add this toy!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        fetch("http://localhost:5000/toys", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(formData),
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            if (data.insertedId) {
+              Swal.fire("Added!", "Your toy has been added.", "success");
+            }
+          });
+        console.log(formData);
+        form.reset();
+      }
+    });
+
+    // console.log(formData);
   };
   return (
     <div className="py-32">
