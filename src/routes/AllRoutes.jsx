@@ -5,6 +5,8 @@ import Home from "../components/home/Home";
 import ErrorPage from "../components/shared/ErrorPage";
 import Store from "../components/allPages/Store";
 import Contact from "../components/allPages/Contact";
+import AddToy from "../components/allPages/AddToy";
+import PrivateRoute from "./PrivateRoute";
 
 const router = createBrowserRouter([
   {
@@ -22,12 +24,20 @@ const router = createBrowserRouter([
       },
       {
         path: "store",
-        element: <Store></Store>
+        element: <Store></Store>,
       },
       {
-        path: "/contact",
-        element: <Contact></Contact>
-      }
+        path: "contact",
+        element: <Contact></Contact>,
+      },
+      {
+        path: "addtoy",
+        element: (
+          <PrivateRoute>
+            <AddToy></AddToy>
+          </PrivateRoute>
+        ),
+      },
     ],
   },
 ]);

@@ -6,7 +6,7 @@ import Swal from "sweetalert2";
 const Navbar = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const { user, logOut } = useAuth();
-  console.log(user);
+  // console.log(user);
   const toggleMobileMenu = () => {
     setMobileMenuOpen(!mobileMenuOpen);
   };
@@ -64,7 +64,7 @@ const Navbar = () => {
           </Link>
           {user ? (
             <>
-              <Link to="" className="hover:text-gray-300">
+              <Link to="/addtoy" className="hover:text-gray-300">
                 Add Toy
               </Link>{" "}
               <Link to="" className="hover:text-gray-300">
@@ -101,7 +101,7 @@ const Navbar = () => {
           {user ? (
             <>
               <Link
-                to=""
+                to="/addtoy"
                 className="block px-4 py-2 text-white hover:bg-gray-600"
               >
                 Add Toy

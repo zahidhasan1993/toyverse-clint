@@ -6,6 +6,7 @@ import Swal from "sweetalert2";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import { useForm } from "react-hook-form";
 import useTitle from "../../customHooks/useTitle";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const Login = () => {
   useEffect(() => {
@@ -16,6 +17,10 @@ const Login = () => {
     login: true,
     register: false,
   });
+  const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from?.pathname || "/";
+
   const { googleLogin, emailSignUp, emailLogIn } = useAuth();
   const {
     register,
@@ -36,6 +41,7 @@ const Login = () => {
           timer: 2000,
         });
         reset();
+        navigate(from, { replace: true });
         // console.log(result.user);
       })
       .then((error) => {
@@ -57,6 +63,7 @@ const Login = () => {
           timer: 2000,
         });
         form.reset();
+        navigate(from, { replace: true });
       })
       .then((error) => {
         console.log(error);
@@ -75,6 +82,7 @@ const Login = () => {
             showConfirmButton: false,
             timer: 2000,
           });
+          navigate(from, { replace: true });
         }
       })
       .then((error) => {

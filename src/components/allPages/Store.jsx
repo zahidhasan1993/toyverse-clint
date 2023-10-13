@@ -28,7 +28,7 @@ const Store = () => {
               <div className="max-w-xl lg:p-10">
                 <div>
                   <p className="text-2xl font-medium tracking-tight text-black sm:text-4xl">
-                    TAll toys of toyverse
+                    All toys of toyverse
                   </p>
                   <p className="max-w-xl mt-4 text-base tracking-tight text-gray-600">
                     Have a look to our toys, its unique and interesting. Register for have more features and to place your toy for the world.
