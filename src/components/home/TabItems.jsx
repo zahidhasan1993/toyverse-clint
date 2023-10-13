@@ -1,25 +1,17 @@
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
-import TabCard from "./TabCard";
-import { useEffect, useState } from "react";
+import MainCard from "../shared/MainCard";
+import { useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import useToys from "../../customHooks/useToys";
 
 const TabItems = () => {
-  const [toys, setToys] = useState([]);
-
+  const toys = useToys();
   useEffect(() => {
     AOS.init();
   }, []);
 
-  useEffect(() => {
-    fetch("alltoys.json")
-      .then((res) => res.json())
-      .then((data) => {
-        setToys(data);
-      });
-  }, []);
-  // console.log('this is our toys', toys);
   const carToys = toys.filter((car) => car.category === "car");
   const superHeros = toys.filter(
     (superHero) => superHero.category === "superhero"
@@ -40,28 +32,28 @@ const TabItems = () => {
         <TabPanel>
           <div data-aos="fade-up" className="md:grid md:grid-cols-4 gap-5 px-8">
             {carToys.map((car) => (
-              <TabCard key={car.id} item={car}></TabCard>
+              <MainCard key={car._id} item={car}></MainCard>
             ))}
           </div>
         </TabPanel>
         <TabPanel>
           <div data-aos="fade-up" className="md:grid md:grid-cols-4 gap-5 px-8">
             {superHeros.map((superHero) => (
-              <TabCard key={superHero.id} item={superHero}></TabCard>
+              <MainCard key={superHero._id} item={superHero}></MainCard>
             ))}
           </div>
         </TabPanel>
         <TabPanel>
           <div data-aos="fade-up" className="md:grid md:grid-cols-4 gap-5 px-8">
             {softToys.map((softToy) => (
-              <TabCard key={softToy.id} item={softToy}></TabCard>
+              <MainCard key={softToy._id} item={softToy}></MainCard>
             ))}
           </div>
         </TabPanel>
         <TabPanel>
           <div data-aos="fade-up" className="md:grid md:grid-cols-4 gap-5 px-8">
             {scineceToys.map((scienceToy) => (
-              <TabCard key={scienceToy.id} item={scienceToy}></TabCard>
+              <MainCard key={scienceToy._id} item={scienceToy}></MainCard>
             ))}
           </div>
         </TabPanel>

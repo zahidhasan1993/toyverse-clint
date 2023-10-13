@@ -29,7 +29,7 @@ const Navbar = () => {
     <nav className="bg-gray-600 bg-opacity-30 text-white p-4 fixed z-10 w-full container mx-auto">
       <div className="container mx-auto flex justify-between items-center">
         <Link to="/" className="text-2xl font-semibold">
-          ToyVerse
+          Toy<span className="text-red-600">Verse</span>
         </Link>
 
         <button
@@ -56,11 +56,11 @@ const Navbar = () => {
           <Link to="/" className="hover:text-gray-300">
             Home
           </Link>
-          <Link to="" className="hover:text-gray-300">
+          <Link to="/store" className="hover:text-gray-300">
             Store
           </Link>
-          <Link to="" className="hover:text-gray-300">
-            About
+          <Link to="/contact" className="hover:text-gray-300">
+            Contact
           </Link>
           {user ? (
             <>
@@ -92,28 +92,43 @@ const Navbar = () => {
           <Link to="/" className="block px-4 py-2 text-white hover:bg-gray-600">
             Home
           </Link>
-          <Link to="" className="block px-4 py-2 text-white hover:bg-gray-600">
+          <Link to="/store" className="block px-4 py-2 text-white hover:bg-gray-600">
             Store
           </Link>
-          <Link to="" className="block px-4 py-2 text-white hover:bg-gray-600">
-            About
+          <Link to="/contact" className="block px-4 py-2 text-white hover:bg-gray-600">
+            Contact
           </Link>
           {user ? (
             <>
-              <Link to="" className="hover:text-gray-300">
+              <Link
+                to=""
+                className="block px-4 py-2 text-white hover:bg-gray-600"
+              >
                 Add Toy
-              </Link>{" "}
-              <Link to="" className="hover:text-gray-300">
+              </Link>
+              <Link
+                to=""
+                className="block px-4 py-2 text-white hover:bg-gray-600"
+              >
                 My Toy
               </Link>
             </>
           ) : (
             <></>
           )}
+
           {user ? (
-            <button className="hover:text-gray-300">Logout</button>
+            <button
+              onClick={handleLogout}
+              className="block px-4 py-2 text-white hover:bg-gray-600"
+            >
+              Logout
+            </button>
           ) : (
-            <Link to="/login" className="hover:text-gray-300">
+            <Link
+              to="/login"
+              className="block px-4 py-2 text-white hover:bg-gray-600"
+            >
               Login
             </Link>
           )}

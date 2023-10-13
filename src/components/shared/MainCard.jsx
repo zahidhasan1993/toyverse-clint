@@ -1,19 +1,20 @@
 import Rating from "react-rating";
 import { Link } from "react-router-dom";
 import { FaRegStar, FaStar } from "react-icons/fa";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 
-const TabCard = ({ item }) => {
-  console.log(item);
+const MainCard = ({ item }) => {
+  // console.log(item);
   return (
-    <div className="relative mx-auto w-full max-w-sm pt-6">
-      <a
-        href="#"
+    <div className="relative mx-auto w-full max-w-sm pt-6 mb-10 md:mb-0">
+      <div
+        
         className="relative inline-block w-full transform transition-transform duration-300 ease-in-out"
       >
         <div className="rounded-lg">
           <div className="relative flex h-60 justify-center overflow-hidden rounded-lg">
             <div className="w-full transform transition-transform duration-500 ease-in-out hover:scale-110">
-              <img src={item.picture} alt="toy images" />
+              <LazyLoadImage src={item.picture} alt="toy images" />
             </div>
 
             <span className="absolute left-0 top-0 z-10 ml-3 mt-3 inline-flex select-none rounded-lg bg-red-500 px-3 py-2 text-sm font-medium text-white">
@@ -37,7 +38,9 @@ const TabCard = ({ item }) => {
                     Ratings :{" "}
                     <Rating
                       initialRating={item.rating}
-                      emptySymbol={<FaRegStar className="text-amber-500"></FaRegStar>}
+                      emptySymbol={
+                        <FaRegStar className="text-amber-500"></FaRegStar>
+                      }
                       fullSymbol={<FaStar className="text-amber-500"></FaStar>}
                       readonly={true}
                     ></Rating>
@@ -63,9 +66,9 @@ const TabCard = ({ item }) => {
             </Link>
           </div>
         </div>
-      </a>
+      </div>
     </div>
   );
 };
 
-export default TabCard;
+export default MainCard;

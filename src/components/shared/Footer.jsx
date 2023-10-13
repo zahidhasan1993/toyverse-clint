@@ -141,7 +141,7 @@ const Footer = () => {
                 <ul className="space-y-4 text-sm">
                   <li>
                     <a
-                      href="#"
+                      href=""
                       className="text-gray-700 transition hover:opacity-75"
                     >
                       1on1 Coaching
@@ -150,7 +150,7 @@ const Footer = () => {
 
                   <li>
                     <a
-                      href="#"
+                      href=""
                       className="text-gray-700 transition hover:opacity-75"
                     >
                       Company Review
@@ -159,7 +159,7 @@ const Footer = () => {
 
                   <li>
                     <a
-                      href="#"
+                      href=""
                       className="text-gray-700 transition hover:opacity-75"
                     >
                       Accounts Review
@@ -168,7 +168,7 @@ const Footer = () => {
 
                   <li>
                     <a
-                      href="#"
+                      href=""
                       className="text-gray-700 transition hover:opacity-75"
                     >
                       HR Consulting
@@ -177,7 +177,7 @@ const Footer = () => {
 
                   <li>
                     <a
-                      href="#"
+                      href=""
                       className="text-gray-700 transition hover:opacity-75"
                     >
                       SEO Optimisation
@@ -194,7 +194,7 @@ const Footer = () => {
                 <ul className="space-y-4 text-sm">
                   <li>
                     <a
-                      href="#"
+                      href=""
                       className="text-gray-700 transition hover:opacity-75"
                     >
                       About
@@ -203,7 +203,7 @@ const Footer = () => {
 
                   <li>
                     <a
-                      href="#"
+                      href=""
                       className="text-gray-700 transition hover:opacity-75"
                     >
                       Meet the Team
@@ -212,7 +212,7 @@ const Footer = () => {
 
                   <li>
                     <a
-                      href="#"
+                      href=""
                       className="text-gray-700 transition hover:opacity-75"
                     >
                       Accounts Review
@@ -229,7 +229,7 @@ const Footer = () => {
                 <ul className="space-y-4 text-sm">
                   <li>
                     <a
-                      href="#"
+                      href=""
                       className="text-gray-700 transition hover:opacity-75"
                     >
                       Contact
@@ -238,7 +238,7 @@ const Footer = () => {
 
                   <li>
                     <a
-                      href="#"
+                      href=""
                       className="text-gray-700 transition hover:opacity-75"
                     >
                       FAQs
@@ -247,7 +247,7 @@ const Footer = () => {
 
                   <li>
                     <a
-                      href="#"
+                      href=""
                       className="text-gray-700 transition hover:opacity-75"
                     >
                       Live Chat
@@ -264,7 +264,7 @@ const Footer = () => {
                 <ul className="space-y-4 text-sm">
                   <li>
                     <a
-                      href="#"
+                      href=""
                       className="text-gray-700 transition hover:opacity-75"
                     >
                       Accessibility
@@ -273,7 +273,7 @@ const Footer = () => {
 
                   <li>
                     <a
-                      href="#"
+                      href=""
                       className="text-gray-700 transition hover:opacity-75"
                     >
                       Returns Policy
@@ -282,7 +282,7 @@ const Footer = () => {
 
                   <li>
                     <a
-                      href="#"
+                      href=""
                       className="text-gray-700 transition hover:opacity-75"
                     >
                       Refund Policy
@@ -291,7 +291,7 @@ const Footer = () => {
 
                   <li>
                     <a
-                      href="#"
+                      href=""
                       className="text-gray-700 transition hover:opacity-75"
                     >
                       Hiring Statistics
@@ -304,7 +304,7 @@ const Footer = () => {
         </div>
 
         <p className="text-xs text-gray-500">
-          © {currentDate.getFullYear()}. Company Name. All rights reserved.
+          © {currentDate.getFullYear()}. Zahid Hasan. All rights reserved.
         </p>
       </div>
     </footer>

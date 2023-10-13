@@ -3,6 +3,8 @@ import Main from "../layouts/Main";
 import Login from "../components/authentication/Login";
 import Home from "../components/home/Home";
 import ErrorPage from "../components/shared/ErrorPage";
+import Store from "../components/allPages/Store";
+import Contact from "../components/allPages/Contact";
 
 const router = createBrowserRouter([
   {
@@ -18,6 +20,14 @@ const router = createBrowserRouter([
         path: "login",
         element: <Login></Login>,
       },
+      {
+        path: "store",
+        element: <Store></Store>
+      },
+      {
+        path: "/contact",
+        element: <Contact></Contact>
+      }
     ],
   },
 ]);
