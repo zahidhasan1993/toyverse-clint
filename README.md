@@ -1,8 +1,9 @@
-# React + Vite
+Welcome to TOYVERSE
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+* This is a full MERN Stack Website
+* Here user can login to see many functions
+* User can add toy and update them
+* User can delete their items
+* Can view details and many more features
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Live Site Link : https://toyverse-f253a.web.app/

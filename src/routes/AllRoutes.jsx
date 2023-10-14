@@ -45,7 +45,7 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/toys/${params.id}`),
+          fetch(`https://toyverse-server-nine.vercel.app/toys/${params.id}`),
       },
       {
         path: "addtoy",
@@ -62,7 +62,7 @@ const router = createBrowserRouter([
             <UpdateToy></UpdateToy>
           </PrivateRoute>
         ),
-        loader: ({params}) => fetch(`http://localhost:5000/toys/${params.id}`)
+        loader: ({params}) => fetch(`https://toyverse-server-nine.vercel.app/toys/${params.id}`)
       },
     ],
   },

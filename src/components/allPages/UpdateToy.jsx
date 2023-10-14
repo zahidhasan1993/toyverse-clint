@@ -1,9 +1,11 @@
 import { useLoaderData } from "react-router-dom";
 import useAuth from "../../customHooks/useAuth";
 import Swal from "sweetalert2";
+import useTitle from "../../customHooks/useTitle";
 
 const UpdateToy = () => {
   const loaderItem = useLoaderData();
+  useTitle("ToyVerse | update toy")
   //   console.log(loaderData);
   const { user } = useAuth();
   const handleSubmit = (e) => {
@@ -36,7 +38,7 @@ const UpdateToy = () => {
       confirmButtonText: "Yes, update it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/toy/${loaderItem._id}`, {
+        fetch(`https://toyverse-server-nine.vercel.app/toy/${loaderItem._id}`, {
           method: "PATCH",
           headers: {
             "Content-Type": "application/json",

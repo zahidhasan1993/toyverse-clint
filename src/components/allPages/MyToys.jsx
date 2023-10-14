@@ -2,13 +2,15 @@ import { useEffect, useState } from "react";
 import useAuth from "../../customHooks/useAuth";
 import Swal from "sweetalert2";
 import { Link } from "react-router-dom";
+import useTitle from "../../customHooks/useTitle";
 
 const MyToys = () => {
+  useTitle("ToyVerse | My Toys")
   const [data, setData] = useState([]);
   const { user, loader } = useAuth();
   useEffect(() => {
     if (!loader) {
-      fetch(`http://localhost:5000/toys/toy/${user?.email}`)
+      fetch(`https://toyverse-server-nine.vercel.app/toys/toy/${user?.email}`)
         .then((res) => res.json())
         .then((data) => {
           setData(data);
@@ -27,7 +29,7 @@ const MyToys = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/toys/${id}`, {
+        fetch(`https://toyverse-server-nine.vercel.app/toys/${id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())
