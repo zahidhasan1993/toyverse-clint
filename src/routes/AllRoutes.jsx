@@ -8,6 +8,7 @@ import Contact from "../components/allPages/Contact";
 import AddToy from "../components/allPages/AddToy";
 import PrivateRoute from "./PrivateRoute";
 import ToyDetails from "../components/allPages/ToyDetails";
+import MyToys from "../components/allPages/MyToys";
 
 const router = createBrowserRouter([
   {
@@ -30,6 +31,10 @@ const router = createBrowserRouter([
       {
         path: "contact",
         element: <Contact></Contact>,
+      },
+      {
+        path: "mytoys",
+        element: <MyToys></MyToys>
       },
       {
         path: "details/:id",

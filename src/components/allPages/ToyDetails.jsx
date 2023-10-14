@@ -7,7 +7,7 @@ const ToyDetails = () => {
   return (
     <div className="w-full">
     <div className="inline-block overflow-hidden shadow-xl  cursor-pointer transition ease-in-out hover:-translate-y-1 hover:scale-102 duration-300 w-full mt-32 rounded-xl">
-      <div className="relative group w-full overflow-hidden bg-black h-[35rem] ">
+      <div className="relative group w-full overflow-hidden bg-black h-[40rem] ">
         <LazyLoadImage
           src={item.picture}
           className="object-cover w-full h-full transform duration-700 backdrop-opacity-100"

@@ -67,7 +67,7 @@ const Navbar = () => {
               <Link to="/addtoy" className="hover:text-gray-300">
                 Add Toy
               </Link>{" "}
-              <Link to="" className="hover:text-gray-300">
+              <Link to="/mytoys" className="hover:text-gray-300">
                 My Toy
               </Link>
             </>
@@ -107,7 +107,7 @@ const Navbar = () => {
                 Add Toy
               </Link>
               <Link
-                to=""
+                to="/mytoys"
                 className="block px-4 py-2 text-white hover:bg-gray-600"
               >
                 My Toy
