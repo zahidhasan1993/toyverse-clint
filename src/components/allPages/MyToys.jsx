@@ -1,13 +1,14 @@
 import { useEffect, useState } from "react";
 import useAuth from "../../customHooks/useAuth";
 import Swal from "sweetalert2";
+import { Link } from "react-router-dom";
 
 const MyToys = () => {
   const [data, setData] = useState([]);
   const { user, loader } = useAuth();
   useEffect(() => {
     if (!loader) {
-      fetch(`http://localhost:5000/toys/${user?.email}`)
+      fetch(`http://localhost:5000/toys/toy/${user?.email}`)
         .then((res) => res.json())
         .then((data) => {
           setData(data);
@@ -103,12 +104,13 @@ const MyToys = () => {
               {/* ::Action Buttons */}
               <td className="py-3 px-4 flex justify-around items-center space-x-6 text-base text-gray-700 font-medium">
                 {/* :::edit button */}
-                <button
+                <Link
+                  to={`/updatetoy/${item._id}`}
                   type="button"
                   className="text-sm text-gray-700 font-semibold hover:underline hover:text-black"
                 >
                   Edit
-                </button>
+                </Link>
                 {/* :::delete button */}
                 <button
                   onClick={() => handleDelete(item._id)}
