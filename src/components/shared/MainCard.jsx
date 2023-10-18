@@ -14,7 +14,7 @@ const MainCard = ({ item }) => {
         <div className="rounded-lg">
           <div className="relative flex h-60 justify-center overflow-hidden rounded-lg">
             <div className="w-full transform transition-transform duration-500 ease-in-out hover:scale-110">
-              <LazyLoadImage src={item.picture} alt="toy images" />
+              <LazyLoadImage src={item.picture} alt="toy images" className="h-[22rem] object-cover"/>
             </div>
 
             <span className="absolute left-0 top-0 z-10 ml-3 mt-3 inline-flex select-none rounded-lg bg-red-500 px-3 py-2 text-sm font-medium text-white">
