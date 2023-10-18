@@ -5,7 +5,16 @@ import { Link } from "react-router-dom";
 import useTitle from "../../customHooks/useTitle";
 
 const MyToys = () => {
-  useTitle("ToyVerse | My Toys")
+  useTitle("ToyVerse | My Toys");
+  useEffect(() => {
+    document.documentElement.style.scrollBehavior = "smooth";
+
+    window.scrollTo(0, 0);
+
+    return () => {
+      document.documentElement.style.scrollBehavior = "auto";
+    };
+  }, []);
   const [data, setData] = useState([]);
   const { user, loader } = useAuth();
   useEffect(() => {

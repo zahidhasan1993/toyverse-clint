@@ -53,7 +53,7 @@ const AddToy = () => {
               Swal.fire("Added!", "Your toy has been added.", "success");
             }
           });
-        console.log(formData);
+        // console.log(formData);
         form.reset();
       }
     });
